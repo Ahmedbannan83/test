@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to {{name}} page from {{adress}}</h1>
+        <h1>The Best Way To Publish Your Articles</h1>
+    </header>
+    <div class="container">
+        <form id="form">
+            {% csrf_token %}
+            <p>
+                <label for="title">Title:</label><br>
+                <input required type="text" id="title">
+            </p>
+            <p>
+                <label for="description">Description:</label><br>
+                <textarea required id="description" cols="30" rows="10"></textarea>
+            </p>
+            <button id="create-btn">Submit Data</button>
+        </form>
+        <h3>All Articles</h3>
+        <button id="load-articles">Load Articles</button>
+        <ul id="articles">
+
+        </ul>
+    </div>  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"></script>
+<script src="{% static 'js/axios.js' %}"></script>
+</body>
+</html>
